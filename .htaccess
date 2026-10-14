@@ -1,0 +1,38 @@
+# ====================================================================
+# Shree Laxmi Expenses - Apache Configuration & URL Rewriting
+# ====================================================================
+
+# Disable directory browsing
+Options -Indexes +FollowSymLinks
+
+# Set default landing page
+DirectoryIndex index.php
+
+# Custom 404 & 403 Error Handlers
+ErrorDocument 404 /vehicle/404.php
+ErrorDocument 403 /vehicle/404.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /vehicle/
+
+    # 1. Block direct browser access to sensitive files (.env, schema.sql, git)
+    RewriteRule ^(\.env|\.git|schema\.sql|\.gitignore) - [F,L,NC]
+
+    # 2. If the requested URL points to an actual file or directory, serve it
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    # 3. Allow clean URLs without .php extension (e.g. /login -> /login.php)
+    RewriteCond %{DOCUMENT_ROOT}/vehicle/$1.php -f
+    RewriteRule ^([^/]+)/?$ $1.php [L,QSA]
+
+    RewriteCond %{REQUEST_FILENAME}.php -f
+    RewriteRule ^(.*)$ $1.php [L,QSA]
+</IfModule>
+
+# Block access to hidden files
+<FilesMatch "^\.">
+    Require all denied
+</FilesMatch>
