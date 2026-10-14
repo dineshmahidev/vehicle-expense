@@ -1,0 +1,224 @@
+/* ==========================================================================
+   Print & PDF Stylesheet for Shree Laxmi Expenses
+   Official Transport Statement & Payment Voucher Formatting
+   ========================================================================== */
+
+@media print {
+  body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    font-size: 12pt;
+    margin: 0;
+    padding: 10mm;
+  }
+
+  .sidebar,
+  .topbar,
+  .btn,
+  .filter-card,
+  .no-print,
+  .mobile-toggle,
+  .modal-overlay {
+    display: none !important;
+  }
+
+  .main-content {
+    margin-left: 0 !important;
+    padding: 0 !important;
+  }
+
+  .page-body {
+    padding: 0 !important;
+  }
+
+  .print-document {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  .page-break {
+    page-break-after: always;
+  }
+}
+
+/* Printable Document Layout */
+.print-document {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+  box-shadow: var(--shadow-md);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+.print-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-bottom: 24px;
+  border-bottom: 2px solid #0f172a;
+  margin-bottom: 24px;
+}
+
+.print-brand h1 {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 4px;
+  letter-spacing: -0.5px;
+}
+
+.print-brand p {
+  font-size: 12px;
+  color: #475569;
+  line-height: 1.4;
+}
+
+.print-meta {
+  text-align: right;
+}
+
+.print-title-badge {
+  display: inline-block;
+  background: #0f172a;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 6px 14px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.print-meta-row {
+  font-size: 12px;
+  color: #475569;
+  margin-bottom: 2px;
+}
+
+/* Info Summary Box */
+.print-info-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.print-info-item label {
+  display: block;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #64748b;
+  margin-bottom: 4px;
+}
+
+.print-info-item span {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #0f172a;
+}
+
+/* Print Tables */
+.print-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+
+.print-table th {
+  background: #f1f5f9;
+  color: #0f172a;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  text-align: left;
+}
+
+.print-table td {
+  padding: 9px 12px;
+  font-size: 12px;
+  border: 1px solid #e2e8f0;
+  color: #1e293b;
+}
+
+.print-table tr:nth-child(even) td {
+  background: #f8fafc;
+}
+
+.print-table .text-right {
+  text-align: right;
+}
+
+.print-table .total-row td {
+  background: #f1f5f9;
+  font-weight: 700;
+  font-size: 13px;
+  border-top: 2px solid #0f172a;
+}
+
+/* Print Net Summary Box */
+.print-summary-box {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+
+.print-summary-card {
+  width: 320px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.print-summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.print-summary-row.grand-total {
+  background: #0f172a;
+  color: #ffffff;
+  font-weight: 800;
+  font-size: 15px;
+  border-bottom: none;
+}
+
+/* Signatures */
+.print-signatures {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 60px;
+  padding-top: 20px;
+}
+
+.signature-box {
+  text-align: center;
+  width: 200px;
+}
+
+.signature-line {
+  border-top: 1px solid #0f172a;
+  margin-bottom: 6px;
+}
+
+.signature-box span {
+  font-size: 12px;
+  color: #475569;
+  font-weight: 600;
+}
